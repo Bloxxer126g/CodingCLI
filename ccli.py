@@ -41,3 +41,14 @@ if usrChoice == "1":
         usrChoice = input("> ")
         if usrChoice != "exit":
             subprocess.Popen(["git","commit","-m",'"'+usrChoice+'"'])
+            exit(0)
+    elif usrChoice == "3":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("Push to remote")
+        print("\nAre you sure you would like to push? [y/n]")
+        usrChoice = input("> ")
+        if usrChoice.lower() != "y":
+            exit(0)
+        else:
+            print("\nPushing!\n")
+            subprocess.Popen(["git","push"])
