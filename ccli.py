@@ -1,5 +1,7 @@
 import subprocess, os, sys, time
 
+
+
 print("Welcome to CCLI\n\nWhat would you like to do today?\n")
 
 print("[1]: Version control")
@@ -40,7 +42,7 @@ if usrChoice == "1":
         print("\nInput the commit message")
         usrChoice = input("> ")
         if usrChoice != "exit":
-            subprocess.Popen(["git","commit","-m",'"'+usrChoice+'"'])
+            subprocess.Popen(["git","commit","-m",usrChoice])
             exit(0)
     elif usrChoice == "3":
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -52,3 +54,4 @@ if usrChoice == "1":
         else:
             print("\nPushing!\n")
             subprocess.Popen(["git","push"])
+            
