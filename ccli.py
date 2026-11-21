@@ -1,0 +1,43 @@
+import subprocess, os, sys, time
+
+print("Welcome to CCLI\n\nWhat would you like to do today?\n")
+
+print("[1]: Version control")
+
+print("\nPick an option from the above list")
+usrChoice = input("> ")
+
+if usrChoice == "1":
+    print("\n")
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("Version Control")
+    print("\n[1]: Stage files")
+    print("[2]: Create a commit")
+    print("[3]: Push an update")
+    print("[4]: Branch")
+
+    print("\nPick an option from the above list")
+    usrChoice = input("> ")
+
+    if usrChoice == "1":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("Stage Files\n")
+        print("Type 'exit' to stop staging.")
+        print("TIP: Type '.' to stage all files.\n\n")
+        while True:
+            print("Input the name of a file to stage it.")
+            usrChoice = input("> ")
+            if usrChoice != "exit":
+                subprocess.Popen(["git","add",usrChoice])
+            else:
+                break
+        print("Files staged successfully!")
+        time.sleep(2)
+        os.system('cls' if os.name == 'nt' else 'clear')
+    elif usrChoice == "2":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("Create a commit")
+        print("\nInput the commit message")
+        usrChoice = input("> ")
+        if usrChoice != "exit":
+            subprocess.Popen(["git","commit","-m",'"'+usrChoice+'"'])
