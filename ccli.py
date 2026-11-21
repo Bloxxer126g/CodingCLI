@@ -32,7 +32,7 @@ if usrChoice == "1":
             print("Input the name of a file to stage it.")
             usrChoice = input("> ")
             if usrChoice != "exit":
-                subprocess.Popen(["git","add",usrChoice])
+                subprocess.run(["git","add",usrChoice])
             else:
                 break
         print("Files staged successfully!")
@@ -44,7 +44,7 @@ if usrChoice == "1":
         print("\nInput the commit message")
         usrChoice = input("> ")
         if usrChoice != "exit":
-            subprocess.Popen(["git","commit","-m",usrChoice])
+            subprocess.run(["git","commit","-m",usrChoice])
             exit(0)
     elif usrChoice == "3":
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -55,7 +55,7 @@ if usrChoice == "1":
             exit(0)
         else:
             print("\nPushing!\n")
-            subprocess.Popen(["git","push"])
+            subprocess.run(["git","push"])
             os.system('cls' if os.name == 'nt' else 'clear')
     elif usrChoice == "4":
         os.system('cls' if os.name == 'nt' else 'clear')
