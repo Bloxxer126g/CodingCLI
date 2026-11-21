@@ -10,6 +10,8 @@ print("\nPick an option from the above list")
 usrChoice = input("> ")
 
 if usrChoice == "1":
+    # VERSION CONTROL STUFF
+
     print("\n")
     os.system('cls' if os.name == 'nt' else 'clear')
     print("Version Control")
@@ -54,4 +56,18 @@ if usrChoice == "1":
         else:
             print("\nPushing!\n")
             subprocess.Popen(["git","push"])
-            
+            os.system('cls' if os.name == 'nt' else 'clear')
+    elif usrChoice == "4":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("Branching")
+
+        print("\n[1]: View available branches")
+        print("[2]: Switch branches")
+        print("[3]: Create a branche")
+        print("[4]: Delete a branch")
+
+        print("\nPick an option from the above list")
+        usrChoice = input("> ")
+        
+        if usrChoice == "1":
+            subprocess.run()
