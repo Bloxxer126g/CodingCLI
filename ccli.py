@@ -5,6 +5,7 @@ import subprocess, os, sys, time
 print("Welcome to CCLI\n\nWhat would you like to do today?\n")
 
 print("[1]: Version control")
+print("[2]: Github")
 
 print("\nPick an option from the above list")
 usrChoice = input("> ")
@@ -95,3 +96,28 @@ if usrChoice == "1":
                 exit(0)
             else:
                 subprocess.run(["git", "branch", "-d", usrChoice])
+
+
+
+elif usrChoice == "2":
+    # GITHUB CONTROL STUFF
+
+    print("\n")
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("Github")
+    print("\n[1]: Create a new repo")
+    print("[2]: Clone a repo")
+    print("[3]: List repos")
+
+    print("\nPick an option from the above list")
+    usrChoice = input("> ")
+    if usrChoice == "1":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        subprocess.run(["gh", "repo", "create"])
+    elif usrChoice == "2":
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print("\nEnter the name of the repo")
+        usrChoice = input("> ")
+        subprocess.run(["gh", "repo", "clone", usrChoice])
+    elif usrChoice == "3":
+        subprocess.run(["gh", "repo", "list"])
