@@ -79,3 +79,19 @@ if usrChoice == "1":
             print("\nEnter the name of the branch")
             usrChoice = input("> ")
             subprocess.run(["git","switch", usrChoice])
+        elif usrChoice == "3":
+            print("\nEnter the name of the branch")
+            usrChoice = input("> ")
+            subprocess.run(["git","checkout", "-b", usrChoice])
+        elif usrChoice == "4":
+            print("\nEnter the name of the branch")
+            usrChoice = input("> ")
+
+            print("Are you sure you would like to delete "+usrChoice+"? [y/n]")
+
+            usrChoiceYesNo = input("> ")
+
+            if usrChoiceYesNo.lower() != "y":
+                exit(0)
+            else:
+                subprocess.run(["git", "branch", "-d", usrChoice])
