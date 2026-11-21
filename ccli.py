@@ -63,11 +63,19 @@ if usrChoice == "1":
 
         print("\n[1]: View available branches")
         print("[2]: Switch branches")
-        print("[3]: Create a branche")
+        print("[3]: Create a branch")
         print("[4]: Delete a branch")
 
         print("\nPick an option from the above list")
         usrChoice = input("> ")
         
+        os.system('cls' if os.name == 'nt' else 'clear')
+
         if usrChoice == "1":
-            subprocess.run()
+            print("Branches:\n")
+            subprocess.run(["git","branch"])
+            print("\n")
+        elif usrChoice == "2":
+            print("\nEnter the name of the branch")
+            usrChoice = input("> ")
+            subprocess.run(["git","switch", usrChoice])
