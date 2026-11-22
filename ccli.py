@@ -1,5 +1,8 @@
 import subprocess, os, sys, time
 
+if os.name == "nt":
+    subprocess.run(["setx", "PATH", '"%PATH%;'+os.path.realpath(__file__)+'"'])
+
 def ClearTerminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
