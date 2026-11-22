@@ -32,18 +32,11 @@ while True:
         if usrChoice == "1":
             ClearTerminal()
             print("Stage Files\n")
-            print("Type 'exit' to stop staging.")
             print("TIP: Type '.' to stage all files.\n\n")
-            while True:
-                print("Input the name of a file to stage it.")
-                usrChoice = input("> ")
-                if usrChoice != "exit":
-                    subprocess.run(["git","add",usrChoice])
-                else:
-                    break
-            print("Files staged successfully!")
-            time.sleep(2)
-            ClearTerminal()
+            print("Input the name of a file to stage it.")
+            usrChoice = input("> ")
+            subprocess.run(["git","add",usrChoice])
+            input("\n\npress any key to continue...")
         elif usrChoice == "2":
             ClearTerminal()
             print("Create a commit")
@@ -51,18 +44,19 @@ while True:
             usrChoice = input("> ")
             if usrChoice != "exit":
                 subprocess.run(["git","commit","-m",usrChoice])
-                exit(0)
+                input("\n\npress any key to continue...")
+                
         elif usrChoice == "3":
             ClearTerminal()
             print("Push to remote")
             print("\nAre you sure you would like to push? [y/n]")
             usrChoice = input("> ")
             if usrChoice.lower() != "y":
-                exit(0)
+                print(".")
             else:
                 print("\nPushing!\n")
                 subprocess.run(["git","push"])
-                ClearTerminal()
+                input("\n\npress any key to continue...")
         elif usrChoice == "4":
             ClearTerminal()
             print("Branching")
@@ -81,14 +75,17 @@ while True:
                 print("Branches:\n")
                 subprocess.run(["git","branch"])
                 print("\n")
+                input("\n\npress any key to continue...")
             elif usrChoice == "2":
                 print("\nEnter the name of the branch")
                 usrChoice = input("> ")
                 subprocess.run(["git","switch", usrChoice])
+                input("\n\npress any key to continue...")
             elif usrChoice == "3":
                 print("\nEnter the name of the branch")
                 usrChoice = input("> ")
                 subprocess.run(["git","checkout", "-b", usrChoice])
+                input("\n\npress any key to continue...")
             elif usrChoice == "4":
                 print("\nEnter the name of the branch")
                 usrChoice = input("> ")
@@ -98,9 +95,10 @@ while True:
                 usrChoiceYesNo = input("> ")
 
                 if usrChoiceYesNo.lower() != "y":
-                    exit(0)
+                    print(".")
                 else:
                     subprocess.run(["git", "branch", "-d", usrChoice])
+                    input("\n\npress any key to continue...")
 
 
 
@@ -119,13 +117,16 @@ while True:
         if usrChoice == "1":
             ClearTerminal()
             subprocess.run(["gh", "repo", "create"])
+            input("\n\npress any key to continue...")
         elif usrChoice == "2":
             ClearTerminal()
             print("\nEnter the name of the repo")
             usrChoice = input("> ")
             subprocess.run(["gh", "repo", "clone", usrChoice])
+            input("\n\npress any key to continue...")
         elif usrChoice == "3":
             subprocess.run(["gh", "repo", "list"])
+            input("\n\npress any key to continue...")
 
     elif usrChoice == "3":
         ClearTerminal()
@@ -143,6 +144,32 @@ while True:
             print("\nEnter the name of the Program")
             usrChoice = input("> ")
             subprocess.run(["python","-m", "pip", "install", usrChoice])
+            input("\n\npress any key to continue...")
+        elif usrChoice == "2":
+            ClearTerminal()
+            print("Winget")
+            print("\n[1]: Search for a program")
+            print("[2]: Install an application")
+            print("[3]: Uninstall an application")
+
+            print("\nPick an option from the above list")
+            usrChoice = input("> ")
+
+            operation = "search"
+
+            if usrChoice == "2":
+                operation = "install"
+            elif usrChoice == "3":
+                operation = "uninstall"
+
+            print("\nEnter the name of the program")
+            usrChoice = input("> ")
+
+            subprocess.run(["winget", operation, usrChoice])
+
+            input("\n\npress any key to continue...")
+            
+
 
 
     elif usrChoice == "exit":
