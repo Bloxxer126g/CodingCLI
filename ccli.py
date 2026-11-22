@@ -1,7 +1,17 @@
-import subprocess, os, sys, time
+import subprocess, os, sys, time, winreg
 
 if os.name == "nt":
-    subprocess.run(["setx", "PATH", '"%PATH%;'+os.path.realpath(__file__)+'"'])
+    folder = os.path.dirname(sys.executable)
+    with winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Environment", 0, winreg.KEY_ALL_ACCESS) as k:
+        path, _ = winreg.QueryValueEx(k, "Path")
+        if folder.lower() not in path.lower():
+            winreg.SetValueEx(k, "Path", 0, winreg.REG_EXPAND_SZ, path + ";" + folder)
+            print("Welcome to CCLI!")
+            print("Before you get started, we'll need you to restart your PC.")
+            print("This is so our changes to PATH take effect!")
+            print("Then, just run 'ccli' in a terminal")
+            print("Happy coding!")
+            exit(0)
 
 def ClearTerminal():
     os.system('cls' if os.name == 'nt' else 'clear')
