@@ -11,7 +11,6 @@ if os.name == "nt":
             print("This is so our changes to PATH take effect!")
             print("Then, just run 'ccli' in a terminal")
             print("Happy coding!")
-            exit(0)
 
 def ClearTerminal():
     os.system('cls' if os.name == 'nt' else 'clear')
