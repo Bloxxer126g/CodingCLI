@@ -168,6 +168,20 @@ while True:
             subprocess.run(["winget", operation, usrChoice])
 
             input("\n\npress any key to continue...")
+        elif usrChoice == "3":
+            ClearTerminal()
+            print("APT (Debian)")
+            print("\nEnter the name of the Program")
+            usrChoice = input("> ")
+            subprocess.run(["sudo","apt", "install", usrChoice])
+            input("\n\npress any key to continue...")
+        elif usrChoice == "4":
+            ClearTerminal()
+            print("Pacman (Arch)")
+            print("\nEnter the name of the Program")
+            usrChoice = input("> ")
+            subprocess.run(["sudo","pacman", "-Ss", usrChoice])
+            input("\n\npress any key to continue...")
             
 
 
